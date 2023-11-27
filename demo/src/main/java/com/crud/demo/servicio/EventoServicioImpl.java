@@ -22,4 +22,19 @@ public class EventoServicioImpl implements EventoServicio{
         return repositorio.save(evento);
     }
 
+    @Override
+    public Evento obtenerEventoPorId(Long id) {
+        return repositorio.findById(id).get();
+    }
+
+    @Override
+    public Evento actualizarEvento(Evento evento) {
+        return repositorio.save(evento);
+    }
+
+    @Override
+    public void eliminarEvento(Long id) {
+        repositorio.deleteById(id);
+    }
+
 }

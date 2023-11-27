@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.crud.demo.servicio.EventoServicio;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -17,8 +18,8 @@ public class EventoControlador {
     private EventoServicio servicio;
 
     @GetMapping({"/eventos", "/"})
-    public String listarEventos(Model modelo){
-        modelo.addAttribute("eventos",servicio.listarEventos());
+    public String listarEventos(Model modelo) {
+        modelo.addAttribute("eventos", servicio.listarEventos());
         return "eventos";
     }
 
@@ -30,8 +31,32 @@ public class EventoControlador {
     }
 
     @PostMapping("/eventos")
-    public  String  guardarEvento(@ModelAttribute("evento")Evento evento){
+    public String guardarEvento(@ModelAttribute("evento") Evento evento) {
         servicio.guardarEvento(evento);
+        return "redirect:/eventos";
+    }
+
+    @GetMapping("/eventos/editar/{id}")
+    public String mostrarFormularioDeEditar(@PathVariable Long id, Model modelo) {
+        modelo.addAttribute("evento", servicio.obtenerEventoPorId(id));
+        return "editar_evento";
+    }
+
+    @PostMapping("/eventos/{id}")
+    public String actualizarEvento(@PathVariable Long id, @ModelAttribute("evento") Evento evento, Model modelo) {
+        Evento eventoExistente = servicio.obtenerEventoPorId(id);
+        eventoExistente.setId(id);
+        eventoExistente.setTitulo(evento.getTitulo());
+        eventoExistente.setDescripcion(evento.getDescripcion());
+
+        servicio.actualizarEvento(eventoExistente);
+        return "redirect:/eventos";
+
+    }
+
+    @GetMapping("/esventos/{id}")
+    public String eliminarEvento(@PathVariable Long id) {
+        servicio.eliminarEvento(id);
         return "redirect:/eventos";
     }
 }
