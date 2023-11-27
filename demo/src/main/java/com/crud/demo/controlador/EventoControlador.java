@@ -54,7 +54,7 @@ public class EventoControlador {
 
     }
 
-    @GetMapping("/esventos/{id}")
+    @GetMapping("/eventos/{id}")
     public String eliminarEvento(@PathVariable Long id) {
         servicio.eliminarEvento(id);
         return "redirect:/eventos";
