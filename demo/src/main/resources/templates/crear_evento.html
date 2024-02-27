@@ -30,12 +30,12 @@
                 <form th:action="@{/eventos}" th:object="${evento}" method="POST">
                     <div class="form-group">
                         <label>Titulo : </label>
-                        <input type="text" name="titulo" th:field="*{titulo}" class="form-control" placeholder="Digite el : " required>
+                        <input type="text" name="titulo" th:field="*{titulo}" class="form-control" placeholder="Digite el nombre del evento: " required>
                     </div>
 
                     <div class="form-group">
                         <label>Descripcion : </label>
-                        <input type="text" name="descripcion" th:field="*{descripcion}" class="form-control" placeholder="Digite la descripcion : " required>
+                        <input type="text" name="descripcion" th:field="*{descripcion}" class="form-control" placeholder="Digite la descripcion: " required>
                     </div>
 
 
