@@ -26,8 +26,8 @@ public class UsuarioServicioImpl implements UsuarioServicio {
 
     private UsuarioRepositorio usuarioRepositorio;
 
-    @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
+
+
 
     public UsuarioServicioImpl(UsuarioRepositorio usuarioRepositorio) {
         super();
@@ -38,9 +38,10 @@ public class UsuarioServicioImpl implements UsuarioServicio {
     public Usuario guardar(UsuarioRegistroDTO registroDTO) {
         Usuario usuario = new Usuario(registroDTO.getNombre(),
                 registroDTO.getApellido(),registroDTO.getEmail(),
-                passwordEncoder.encode(registroDTO.getPassword()),Arrays.asList(new Rol("ROLE_USER")));
+                registroDTO.getPassword(), Arrays.asList(new Rol("ROLE_USER")));
         return usuarioRepositorio.save(usuario);
     }
+
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
