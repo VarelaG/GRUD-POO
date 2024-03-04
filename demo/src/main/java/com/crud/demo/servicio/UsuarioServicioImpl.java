@@ -56,8 +56,4 @@ public class UsuarioServicioImpl implements UsuarioServicio {
         return roles.stream().map(role -> new SimpleGrantedAuthority(role.getNombre())).collect(Collectors.toList());
     }
 
-    @Override
-    public List<Usuario> listarUsuarios() {
-        return usuarioRepositorio.findAll();
-    }
 }
