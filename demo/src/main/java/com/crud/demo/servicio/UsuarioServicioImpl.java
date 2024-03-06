@@ -25,6 +25,7 @@ public class UsuarioServicioImpl implements UsuarioServicio {
 
 
     private UsuarioRepositorio usuarioRepositorio;
+    private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
 
 
@@ -36,9 +37,12 @@ public class UsuarioServicioImpl implements UsuarioServicio {
 
     @Override
     public Usuario guardar(UsuarioRegistroDTO registroDTO) {
+
+        String encodedPassword = passwordEncoder.encode(registroDTO.getPassword());
+
         Usuario usuario = new Usuario(registroDTO.getNombre(),
                 registroDTO.getApellido(),registroDTO.getEmail(),
-                registroDTO.getPassword(), Arrays.asList(new Rol("ROLE_USER")));
+                encodedPassword, Arrays.asList(new Rol("ROLE_USER")));
         return usuarioRepositorio.save(usuario);
     }
 
