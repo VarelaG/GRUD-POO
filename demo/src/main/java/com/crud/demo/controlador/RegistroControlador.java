@@ -16,9 +16,9 @@ public class RegistroControlador {
     public String iniciarSesion() {
         return "login";
     }
-
+/*
     @GetMapping("/")
     public String verPaginaDeInicio() {
         return "index";
-    }
+    }*/
 }

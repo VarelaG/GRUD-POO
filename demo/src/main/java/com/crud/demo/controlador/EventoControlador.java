@@ -17,7 +17,7 @@ public class EventoControlador {
     @Autowired
     private EventoServicio servicio;
 
-    @GetMapping({"/eventos", "/"})
+    @GetMapping("/eventos")
     public String listarEventos(Model modelo) {
         modelo.addAttribute("eventos", servicio.listarEventos());
         return "eventos";

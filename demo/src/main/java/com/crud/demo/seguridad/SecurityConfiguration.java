@@ -48,21 +48,9 @@ public class SecurityConfiguration {
         http
                 .userDetailsService(usuarioServicio)
                 .authorizeRequests((requests) -> requests
-                        .requestMatchers(
-                                new AntPathRequestMatcher("/"),
-                                new AntPathRequestMatcher("/registro**"),
-                                new AntPathRequestMatcher("/webjars/"),
-                                new AntPathRequestMatcher("/resources/"),
-                                new AntPathRequestMatcher("/css/**")
-                        ).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/")).permitAll()
-                        .anyRequest().hasAuthority("ROLE_USER")
-
-                )
-                .formLogin((form) -> form.loginPage("/login").permitAll())
-                .logout((logout) -> logout.permitAll())
-
-        ;
+                        .requestMatchers("/")
+                        .permitAll().anyRequest().authenticated())
+                .formLogin((form) -> form.loginPage("/login").permitAll()).logout((logout) -> logout.permitAll());
         return http.build();
     }
 }
