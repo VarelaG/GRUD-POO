@@ -1,10 +1,12 @@
 package com.crud.demo.entidad;
 
 import jakarta.persistence.*;
+import jakarta.transaction.Transactional;
 import org.springframework.data.annotation.Id;
 
 @Entity
 @Table(name= "evento")
+@Transactional
 public class Evento {
 
     @jakarta.persistence.Id

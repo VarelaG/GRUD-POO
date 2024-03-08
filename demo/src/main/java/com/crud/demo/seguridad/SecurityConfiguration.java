@@ -50,7 +50,10 @@ public class SecurityConfiguration {
                 .authorizeRequests((requests) -> requests
                         .requestMatchers("/")
                         .permitAll().anyRequest().authenticated())
-                .formLogin((form) -> form.loginPage("/login").permitAll()).logout((logout) -> logout.permitAll());
+                .formLogin((form) -> form.loginPage("/login").permitAll())
+                .logout((logout) -> logout
+                        .logoutSuccessUrl("/login").permitAll());
+
         return http.build();
     }
 }

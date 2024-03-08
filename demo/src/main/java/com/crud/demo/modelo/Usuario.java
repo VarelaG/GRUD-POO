@@ -1,12 +1,14 @@
 package com.crud.demo.modelo;
 
 import jakarta.persistence.*;
+import jakarta.transaction.Transactional;
 import org.springframework.data.annotation.Id;
 
 import java.util.Collection;
 
 @Entity
-@Table(name = "usuarios", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@Table(name = "usuarios")
+@Transactional
 public class Usuario {
 
     @jakarta.persistence.Id
@@ -14,13 +16,15 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "nombre")
+    @Column(name = "nombre", nullable = false)
     private String nombre;
 
-    @Column(name = "apellido")
+    @Column(name = "apellido", nullable = false)
     private String apellido;
 
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
+    @Column(name = "password", nullable = false)
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
