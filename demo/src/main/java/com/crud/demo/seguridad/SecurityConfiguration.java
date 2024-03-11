@@ -48,11 +48,14 @@ public class SecurityConfiguration {
         http
                 .userDetailsService(usuarioServicio)
                 .authorizeRequests((requests) -> requests
-                        .requestMatchers("/")
+                        .requestMatchers("/", "/registro", "/eventos")
                         .permitAll().anyRequest().authenticated())
                 .formLogin((form) -> form.loginPage("/login").permitAll())
                 .logout((logout) -> logout
-                        .logoutSuccessUrl("/login").permitAll());
+                        .invalidateHttpSession(true)
+                        .clearAuthentication(true)
+                        .logoutSuccessHandler(logout.getLogoutSuccessHandler())
+                        .logoutSuccessUrl("/login?logout").permitAll());
 
         return http.build();
     }

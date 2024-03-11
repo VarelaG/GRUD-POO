@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Eventos</title>
@@ -28,7 +28,7 @@
     </div>
     <div class="row">
         <div class="col-lg-3">
-            <a th:href="@{/eventos/nuevo}" class="btn btn-primary btn-sm mb3">Agregar evento</a>
+            <a sec:authorize="isAuthenticated()" th:href="@{/eventos/nuevo}" class="btn btn-primary btn-sm mb3">Agregar evento</a>
         </div>
     </div>
     <br>
@@ -37,7 +37,7 @@
         <tr>
             <th>Titulo</th>
             <th>Descripcion</th>
-            <th>Acciones</th>
+            <th sec:authorize="isAuthenticated()">Acciones</th>
         </tr>
         </thead>
         <tbody>
@@ -45,7 +45,7 @@
             <td th:text="${evento.titulo}">Titulo</td>
             <td th:text="${evento.descripcion}">Descripcion</td>
 
-            <td>
+            <td sec:authorize="isAuthenticated()">
                 <a th:href="@{/eventos/editar/{id}(id=${evento.id})}" class="btn btn-info">Editar</a>
                 <a th:href="@{/eventos/{id}(id=${evento.id})}" class="btn btn-danger">Eliminar</a>
             </td>
