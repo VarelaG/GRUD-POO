@@ -28,7 +28,10 @@ public class UsuarioServicioImpl implements UsuarioServicio {
     private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
 
-
+    @Override
+    public List<Usuario> listarUsuarios() {
+        return usuarioRepositorio.findAll();
+    }
 
     public UsuarioServicioImpl(UsuarioRepositorio usuarioRepositorio) {
         super();

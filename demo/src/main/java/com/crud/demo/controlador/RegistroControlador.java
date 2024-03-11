@@ -16,9 +16,11 @@ public class RegistroControlador {
     public String iniciarSesion() {
         return "login";
     }
-/*
+
     @GetMapping("/")
-    public String verPaginaDeInicio() {
+    public String verPaginaDeInicio(Model modelo) {
+        modelo.addAttribute("usuarios", servicio.listarUsuarios());
+
         return "index";
-    }*/
+    }
 }
