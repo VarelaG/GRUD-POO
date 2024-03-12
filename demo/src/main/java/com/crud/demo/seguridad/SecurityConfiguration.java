@@ -52,10 +52,12 @@ public class SecurityConfiguration {
                         .permitAll().anyRequest().authenticated())
                 .formLogin((form) -> form.loginPage("/login").permitAll())
                 .logout((logout) -> logout
+
                         .invalidateHttpSession(true)
                         .clearAuthentication(true)
                         .logoutSuccessHandler(logout.getLogoutSuccessHandler())
                         .logoutSuccessUrl("/login?logout").permitAll());
+
 
         return http.build();
     }

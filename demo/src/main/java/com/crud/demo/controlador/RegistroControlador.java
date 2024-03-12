@@ -22,6 +22,7 @@ public class RegistroControlador {
         return "login";
     }
 
+
     @GetMapping(value="/logout")
     public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -30,9 +31,11 @@ public class RegistroControlador {
         }
         return "redirect:/login?logout";
     }
-/*
+
     @GetMapping("/")
-    public String verPaginaDeInicio() {
+    public String verPaginaDeInicio(Model modelo) {
+        modelo.addAttribute("usuarios", servicio.listarUsuarios());
+
         return "index";
-    }*/
+    }
 }
