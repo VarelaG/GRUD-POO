@@ -36,6 +36,12 @@ public class EventoControlador {
         return "redirect:/eventos";
     }
 
+    @GetMapping({"/eventos/{id}"})
+    public String listarEventosAdminId(@PathVariable Long id, Model modelo) {
+        modelo.addAttribute("eventos", servicio.obtenerEventoPorId(id));
+        return "eventos";
+    }
+
     @GetMapping("/eventos/editar/{id}")
     public String mostrarFormularioDeEditar(@PathVariable Long id, Model modelo) {
         modelo.addAttribute("evento", servicio.obtenerEventoPorId(id));
@@ -48,13 +54,11 @@ public class EventoControlador {
         eventoExistente.setId(id);
         eventoExistente.setTitulo(evento.getTitulo());
         eventoExistente.setDescripcion(evento.getDescripcion());
-
         servicio.actualizarEvento(eventoExistente);
         return "redirect:/eventos";
-
     }
 
-    @GetMapping("/eventos/{id}")
+    @GetMapping("/eventos/eliminar/{id}")
     public String eliminarEvento(@PathVariable Long id) {
         servicio.eliminarEvento(id);
         return "redirect:/eventos";
