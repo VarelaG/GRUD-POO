@@ -11,9 +11,9 @@
 
 /* Estilo para la foto del evento */
 .table .evento-foto {
-    max-width: 100px; /* Ajusta el ancho máximo según tus necesidades */
-    max-height: 100px; /* Ajusta la altura máxima según tus necesidades */
-    border-radius: 5px; /* Bordes redondeados para la foto */
+    max-width: 25rem;
+    max-height: 25rem;
+    object-fit: cover;
 }
 
 /* Estilo para los botones de acciones */

@@ -31,6 +31,10 @@
                                 <label>Descripcion: </label>
                                 <input type="text" name="descripcion" th:field="*{descripcion}" class="form-control" placeholder="Ingrese la descripcion: " required>
                             </div>
+                            <div>
+                                <label>Imagen: </label>
+                                <input type="file" name="imagen" th:field="*{imagePath}" class="form-control" placeholder="Escoger una imagen: ">
+                            </div>
                             <div class="box-footer">
                                 <button class="btn btn-success">Guardar</button>
                             </div>

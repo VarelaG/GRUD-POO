@@ -20,18 +20,23 @@ public class Evento {
     @Column(name = "descripcion", nullable = false)
     private String descripcion;
 
+    @Column(name = "imagePath")
+    private String imagePath;
+
     public Evento() {
     }
 
-    public Evento(Long id, String titulo, String descripcion) {
+    public Evento(Long id, String titulo, String descripcion, String imagePath) {
         this.id = id;
         this.titulo = titulo;
         this.descripcion = descripcion;
+        this.imagePath = imagePath;
     }
 
-    public Evento(String titulo, String descripcion) {
+    public Evento(String titulo, String descripcion, String imagePath) {
         this.titulo = titulo;
         this.descripcion = descripcion;
+        this.imagePath = imagePath;
     }
 
 
@@ -51,12 +56,21 @@ public class Evento {
         this.descripcion = descripcion;
     }
 
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath){
+        this.imagePath = imagePath;
+    }
+
     @Override
     public String toString() {
         return "Evento{" +
                 "id=" + id +
                 ", titulo='" + titulo + '\'' +
                 ", descripcion='" + descripcion + '\'' +
+                ", Path de la imagen='" + imagePath + '\'' +
                 '}';
     }
 
