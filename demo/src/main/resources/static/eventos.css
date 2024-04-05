@@ -1,0 +1,23 @@
+/* Estilo para el contenedor principal */
+.container-eventos {
+    margin-top: 40px;
+}
+
+/* Estilo para los cuadrados de la tabla */
+.table th, .table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Estilo para la foto del evento */
+.table .evento-foto {
+    max-width: 100px; /* Ajusta el ancho máximo según tus necesidades */
+    max-height: 100px; /* Ajusta la altura máxima según tus necesidades */
+    border-radius: 5px; /* Bordes redondeados para la foto */
+}
+
+/* Estilo para los botones de acciones */
+.table .acciones-btns {
+    display: flex;
+    justify-content: space-around;
+}

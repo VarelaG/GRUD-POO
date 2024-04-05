@@ -33,9 +33,11 @@ public class RegistroControlador {
     }
 
     @GetMapping("/")
-    public String verPaginaDeInicio(Model modelo) {
-        modelo.addAttribute("usuarios", servicio.listarUsuarios());
-
+    public String verPaginaDeInicio() {
         return "index";
+    }
+    @GetMapping("/indexx")
+    public String verPagina() {
+        return "indexx";
     }
 }

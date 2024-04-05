@@ -48,7 +48,7 @@ public class SecurityConfiguration {
         http
                 .userDetailsService(usuarioServicio)
                 .authorizeRequests((requests) -> requests
-                        .requestMatchers("/", "/registro", "/eventos")
+                        .requestMatchers("/", "/registro", "/eventos", "/js/**", "/images/**","/webjars/**", "/resources/**", "/css/**")
                         .permitAll().anyRequest().authenticated())
                 .formLogin((form) -> form.loginPage("/login").permitAll())
                 .logout((logout) -> logout
