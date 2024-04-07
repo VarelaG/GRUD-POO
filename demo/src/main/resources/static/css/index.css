@@ -1,12 +1,12 @@
 @font-face {
     font-family: 'Gotham';
-    src: url(Fonts/GothamMedium.ttf) format('truetype');
+    src: url(../Fonts/GothamMedium.ttf) format('truetype');
     font-weight: normal;
 }
 
 @font-face {
     font-family: 'Gotham';
-    src: url(Fonts/GothamBold.ttf) format('truetype');
+    src: url(../Fonts/GothamBold.ttf) format('truetype');
     font-weight: bold;
 }
 
@@ -15,6 +15,12 @@
 *{
     box-sizing: border-box;
 }
+
+.wave-header{
+    width: 100%;
+    position: relative;
+}
+
 
 .wave-header{
     width: 100%;
@@ -137,7 +143,7 @@ header a:hover{
     text-align: center;
     flex-direction: column;
     height: 90vh;
-    background-image:url("media/DSC_0425.JPG");
+    background-image:url("../media/DSC_0425.JPG");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -158,6 +164,10 @@ header a:hover{
 
 #ultima {
     background-color: #114372;
+}
+
+svg {
+    margin-bottom: -1.5px;
 }
 
 #ultima .container {
@@ -300,7 +310,7 @@ iframe {
             rgba(0,0,0,0.5),
             rgba(0,0,0,0.5)
     )
-    ,url("media/DSC_0016.JPG");
+    ,url("../media/DSC_0016.JPG");
 
 }
 
@@ -310,7 +320,7 @@ iframe {
             rgba(0,0,0,0.5),
             rgba(0,0,0,0.5)
     )
-    ,url("media/DSC_0108.JPG");
+    ,url("../media/DSC_0108.JPG");
 }
 
 .carta:nth-child(3){
@@ -319,7 +329,7 @@ iframe {
             rgba(0,0,0,0.5),
             rgba(0,0,0,0.5)
     )
-    ,url("media/DSC_0042.JPG");
+    ,url("../media/DSC_0042.JPG");
 
 }
 
@@ -442,7 +452,7 @@ footer .donate-button {
                 rgba(0,0,0,0.5),
                 rgba(0,0,0,0.5)
         )
-        ,url("media/DSC_0016-crop.png");
+        ,url("../media/DSC_0016-crop.png");
 
     }
 
@@ -452,7 +462,7 @@ footer .donate-button {
                 rgba(0,0,0,0.5),
                 rgba(0,0,0,0.5)
         )
-        ,url("media/DSC_0108-crop.JPG");
+        ,url("../media/DSC_0108-crop.JPG");
     }
 
     .carta:nth-child(3){
@@ -461,7 +471,7 @@ footer .donate-button {
                 rgba(0,0,0,0.5),
                 rgba(0,0,0,0.5)
         )
-        ,url("media/DSC_0042-crop.JPG");
+        ,url("../media/DSC_0042-crop.JPG");
 
     }
 }
