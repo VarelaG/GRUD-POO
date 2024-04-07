@@ -54,6 +54,7 @@ public class EventoControlador {
         eventoExistente.setId(id);
         eventoExistente.setTitulo(evento.getTitulo());
         eventoExistente.setDescripcion(evento.getDescripcion());
+        eventoExistente.setImagePath(evento.getImagePath());
         servicio.actualizarEvento(eventoExistente);
         return "redirect:/eventos";
     }

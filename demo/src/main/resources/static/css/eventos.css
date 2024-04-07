@@ -6,12 +6,11 @@
 /* Estilo para los cuadrados de la tabla */
 .table th, .table td {
     text-align: center;
-    vertical-align: middle;
+    vertical-align: middle !important;
 }
 
 /* Estilo para la foto del evento */
 .table .evento-foto {
-    max-width: 25rem;
     max-height: 25rem;
     object-fit: cover;
 }
